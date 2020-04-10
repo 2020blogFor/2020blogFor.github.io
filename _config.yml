@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "CS 159"
-  avatar           : "profile.png"
+  avatar           : "tutdemo_01.png"  #"profile.png"
   bio              : "learning to opt"
   location         : #"Location"
   employer         :
