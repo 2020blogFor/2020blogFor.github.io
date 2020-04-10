@@ -1,10 +1,11 @@
 ---
-title: 'Statistical Whitening'
-date: 2017-08-01
+title: 'Template Blog'
+date: 2020-08-01
 permalink: /posts/2017/08/statistical_whitening/
 tags:
   - whitening
 ---
+This is a blog template credit to [Joe Marino](https://joelouismarino.github.io/)
 
 Normalization is a fundamental component of machine learning. Take any introductory machine learning course, and you'll learn about the importance of normalizing the inputs to your model. The justification goes something like this: the important patterns in the data often correspond to the <i>relative</i> relationships between the different input dimensions. Therefore, you can make the task of learning and recognizing these patterns easier by removing the constant offset and standardizing the scales.
 
