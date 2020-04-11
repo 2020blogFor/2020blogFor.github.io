@@ -80,9 +80,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "CS 159"
+  name             : "CS 159 Spring 2020"
   avatar           : "tutdemo_01.png"  #"profile.png"
-  bio              : "learning to opt"
+  bio              : "Data-Driven Algorithm Design"
   location         : #"Location"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
