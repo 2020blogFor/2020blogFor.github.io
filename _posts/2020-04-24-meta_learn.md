@@ -60,7 +60,7 @@ To compare MAML, we use a cubic function neural network with random initializati
 
 Now we come to the second meta-learning approach - Reptile. However, I don't know why this algorithm is called Reptile. Maybe it want to contact with Mammal :). The pseudo-code from the [original paper](https://pdfs.semanticscholar.org/672c/586880655dc544474280a6e086c1fc901c85.pdf) is as follows.
 
-![image](../../../../images/blog_images/meta_learn_images/Reptile_pes.png)
+![image](../../../../images/blog_images/meta_learn_images/reptile_pes.png)
 
 Reptile takes SGD for $k$ iterations on a given task to get the current parameters $\theta_1,\theta_2,..., \theta_n$, and then moves $\Theta$  in the direction of the parameters we obtained. We also give a similar toy example with Reptile. The lower level model is the same as the previous cubic function neural network and we set $k$ as 3.
 
