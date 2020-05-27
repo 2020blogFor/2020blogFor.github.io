@@ -25,7 +25,7 @@ Since the number of learning tasks is more than one, before describing the algor
 #### MAML
 We will first introduce "Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks" (abbreviated as **MAML**). The pseudo-code from the [original paper](https://arxiv.org/abs/1703.03400) is as following, we modify the name of parameters to make it clear.
 
-![pes_maml](images/pes_maml.png)
+![pes_maml](../../../../images/blog_images/meta_learn_images/pes_maml.png)
 As a meta-learning algorithm, MAML focuses on learning best initialization values $\mathrm \Theta$ for parameters $\theta$ of a neural network $f$.  Suppose we have a task set $\{\Gamma_i\}_{i = 1}^M$and each task has $K$ examples. In each epoch, we first random sample $n$ task sets to construct a task batch $\{\Gamma_j\}_{j = 1}^n$. After training the network $f$ on support sets of each task in the batch, we could get $n$ new models: $f_{\theta_1}, f_{\theta_2}, …, f_{\theta_n}$. The way to update parameters is:
 
 $$\theta_j \Leftarrow \theta - \alpha \nabla_{\theta}{\mathcal L}_{\Gamma_j} (f_{\theta}),$$
@@ -52,20 +52,20 @@ Specifically, in task $\Gamma_i$, the ground truth is $a_ix^3+b_ix^2+c_ix+d_i$. 
 
 To compare MAML, we use a cubic function neural network with random initialization parameters to learn from the data. The following first figure shows the training process on the test set with the random initialization parameters. The second figure shows the training process on the same test set with the MAML initialization parameters. We can see that MAML initialization parameters are much better than random initialization. After the first epoch, MAML has already got a good result while the random-sampling method learn nothing.
 
-![Alt Text](images/random.gif)
+![Alt Text](../../../../images/blog_images/meta_learn_images/random.gif)
 
-![Alt Text](images/MAML.gif)
+![Alt Text](../../../../images/blog_images/meta_learn_images/MAML.gif)
 
 #### Reptile
 
 Now we come to the second meta-learning approach - Reptile. However, I don't know why this algorithm is called Reptile. Maybe it want to contact with Mammal :). The pseudo-code from the [original paper](https://pdfs.semanticscholar.org/672c/586880655dc544474280a6e086c1fc901c85.pdf) is as follows.
 
-![image](images/Reptile_pes.png)
+![image](../../../../images/blog_images/meta_learn_images/Reptile_pes.png)
 
 Reptile takes SGD for $k$ iterations on a given task to get the current parameters $\theta_1,\theta_2,..., \theta_n$, and then moves $\Theta$  in the direction of the parameters we obtained. We also give a similar toy example with Reptile. The lower level model is the same as the previous cubic function neural network and we set $k$ as 3.
 
 <script src="https://gist.github.com/tree1111/fb5fca90d37834221a46cf72de41da6a.js"></script>
-![Alt Text](images/Reptile.gif)
+![Alt Text](../../../../images/blog_images/meta_learn_images/Reptile.gif)
 
 As the figure shows, Reptile initialization is also better than random initialization. But we could not say Reptile is better than MAML.
 
@@ -79,17 +79,17 @@ Firstly, we give the model a support set containing n new classes that are unsee
 
 Here is an example of 1-way 20-shot classification from [omniglot](https://github.com/brendenlake/omniglot) dataset.
 
-![image](images/1s20w.png)
+![image](../../../../images/blog_images/meta_learn_images/1s20w.png)
 								(image source: [The Omniglot challenge: a 3-year progress report](https://arxiv.org/pdf/1902.03477.pdf))
 
 A training set in a few shot learning contains a support set and a query example.  After training on several training datasets, the algorithm will be tested with test datasets that contain new classes that are unseen before. Here is an example of a 2-way 4-shot classification task with the visualization of the training set and testing set.
 
-![image](images/4s2w.jpeg)
+![image](../../../../images/blog_images/meta_learn_images/4s2w.jpeg)
 										(image source: [Meta-Learning: Learning to Learn Fast](https://lilianweng.github.io/lil-log/2018/11/30/meta-learning.html))
 
 MAML, The meta learning algorithm mentioned before, achieves outstanding classification accuracies in few-shot learning tasks. Here are the results from [original paper](https://arxiv.org/pdf/1703.03400v3.pdf).
 
-![image](images/result.png)
+![image](../../../../images/blog_images/meta_learn_images/result.png)
 
 As shown by [paperswithcode](https://paperswithcode.com/task/few-shot-image-classification), MAML is still the state of the art model for OMNIGLOT - 5-Shot learning task.
 
@@ -101,7 +101,7 @@ One major problem of natural language models is the hardness of learning the lon
 
 The meta learner works very similarly to those time-series models. During the training, the meta-learner takes a sequence of parameters and gradients from models as inputs, and produces a sequence of updated model parameters as output. The author of the paper [Meta-Learning a Dynamical Language Model](https://arxiv.org/abs/1803.10631) uses this kind of analogy to implement a method that applies meta-learner as a medium-term memory in deep learning language models.  Here is the architecture of the model they build:
 
-![image](images/arch.png)
+![image](../../../../images/blog_images/meta_learn_images/arch.png)
 
 
 
@@ -109,7 +109,7 @@ This meta-learning model has three levels of memory network. The bottom level is
 
 The result of this model is shown below.
 
-![image](images/lm.png)
+![image](../../../../images/blog_images/meta_learn_images/lm.png)
 
 The task is about predicting the words of a Wikipedia article given the beginning. Here A, B, C ..., H are successive Wikipedia articles. The curves show the difference in instant perplexity between models. The red curve is the difference between the 2 levels model (LSTM + meta-learner) and 1 level model (only standard LSTM). A positive value means the 2 levels model achieves a lower perplexity locally compared to the 1 level model. In NLP tasks, the lower the perplexity, the better. Because of the ability of meta-learner to memorize medium-term memory, we can see that perplexity difference is gradually increased during the processing of article C and article E. That means the 2 levels model performs better and better along with the article. On the right side, 1 and 2 are captured from the red curve. The difference is that, 1 is captured at the beginning of the article E, and 2 is captured from the middle of the article E.  For each token, blue color means 2 levels model has a smaller token loss than the 1 level model, while red color indicates the 2 levels model has a larger token loss than the 1 level model. As we can see, compared to tokens in 1, most of tokens in 2 are blue. That also shows that the meta learner in the 2 levels model help to increase the performance as the model reads through the article. 
 
