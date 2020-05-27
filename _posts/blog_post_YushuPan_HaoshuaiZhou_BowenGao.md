@@ -1,6 +1,7 @@
 ---
 title: 'Meta-learning: A Learning to Learn Approach'
 date: 2020-04-24
+permalink: /posts/2020/04/meta_learn/
 tags:
   - meta-learning
 ---
