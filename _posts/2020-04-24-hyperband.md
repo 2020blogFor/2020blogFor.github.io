@@ -46,7 +46,7 @@ Hyperband has two main steps that can be viewed as a nested for loop:
 
 A more detailed explanation in terms of pseudo code, taken from the [Hyperband paper](https://arxiv.org/pdf/1603.06560.pdf), can be seen below:
 
-![alt text](../../../../images/blog_images/hyperband/pseudoCode.png "")
+![alt text](../../../../images/blog_images/hyperband/pseudoCode.png)
 
 \begin{figure}[h!]\label{pseudoCode}
 \centering
