@@ -48,10 +48,6 @@ A more detailed explanation in terms of pseudo code, taken from the [Hyperband p
 
 ![alt text](../../../../images/blog_images/hyperband/pseudoCode.png)
 
-\begin{figure}[h!]\label{pseudoCode}
-\centering
-\includegraphics[width=1\textwidth]{pseudoCode.png}
-\end{figure}
 
 Each run of successive halving will be referred to as a bracket, and is allocated $$B$$ resources. So the total budget of hyperband is $$(s_{max}+1)B$$, where $$s_{max}$$ is the number of brackets.
 
