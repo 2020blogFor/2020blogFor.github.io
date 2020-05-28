@@ -21,7 +21,7 @@ Upon further inspection, [Li et al. (2018)](https://arxiv.org/pdf/1603.06560.pdf
 
 In this blog post, we aim to present the technical details of the Hyperband algorithm in a tangible way to the reader by first outlining the core algorithm and associated subroutines. We then present an example implementation of the Hyperband algorithm in an experimental setting to concretely outline a specific use-case and to reference an easy-to-use Python package available by [Keras](https://github.com/keras-team/keras-tuner) for developers.
 
-![alt text](./blog_images/hyperband_1.jpeg "(a) The numbered dots indicate successive hyperparameter configurations evaluated by the Hyperband algorithm. And the background heatmap shows the true validation error for a two-dimensional search space. The Hyperband algorithm is shown to converge to an area with the lowest validation error. (b) The Hyperband algorithm is designed to allocate more resources to promising configurations. A cutoff in resources can be seen in high loss configurations.")
+![alt text](../../../../images/blog_images/hyperband/hyperband_1.jpeg "(a) The numbered dots indicate successive hyperparameter configurations evaluated by the Hyperband algorithm. And the background heatmap shows the true validation error for a two-dimensional search space. The Hyperband algorithm is shown to converge to an area with the lowest validation error. (b) The Hyperband algorithm is designed to allocate more resources to promising configurations. A cutoff in resources can be seen in high loss configurations.")
 
 ### Explanation of Hyperband
 #### High-Level Description of Hyperband
@@ -46,7 +46,7 @@ Hyperband has two main steps that can be viewed as a nested for loop:
 
 A more detailed explanation in terms of pseudo code, taken from the [Hyperband paper](https://arxiv.org/pdf/1603.06560.pdf), can be seen below:
 
-![alt text](./blog_images/pseudoCode.png "")
+![alt text](../../../../images/blog_images/hyperband/pseudoCode.png "")
 
 \begin{figure}[h!]\label{pseudoCode}
 \centering
