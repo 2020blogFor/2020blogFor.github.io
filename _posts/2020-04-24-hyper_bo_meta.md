@@ -70,7 +70,7 @@ In the below pseudocode, [SMBO with meta-learning initialization](https://www.aa
 
 We begin the search for hyperparameter with the configurations that were optimal for similar datasets. In essence, we relate the new dataset to the previous datasets that we experienced. 
 
-The best hyperparameters $\hat{\theta}_{1}, ... , \hat{\theta}_{N}$ for previously experienced datasets $\mathcal{D}_{1}, ..., \mathcal{D}_{N}$ originate from arbitrary sources, including manual search or applications of SMBO to those datasets. $\pi$ denotes a permutation of $(1, ..., N)$ sorted by increasing distance. $d$ is a distance metric between datasets and is defined as $d(\mathcal{D}_{new}, d_{j}) = ||m^{new} - m^{j}||$ where $m^{i} = (m_{1}^{i}, ..., m_{F}^{i})$ is a set of metafeatures set $F$ for datasets.
+The best hyperparameters $\hat{\theta}_{1}, ... , \hat{\theta}_{N}$ for previously experienced datasets $\mathcal{D}_{1}, ..., \mathcal{D}_{N}$ originate from arbitrary sources, including manual search or applications of SMBO to those datasets. $\pi$ denotes a permutation of $(1, ..., N)$ sorted by increasing distance. $d$ is a distance metric between datasets and is defined as $d(\mathcal{D}_{new}, d_{j}) = \| \|m^{new} - m^{j} \| \|$ where $m^{i} = (m_{1}^{i}, ..., m_{F}^{i})$ is a set of metafeatures set $F$ for datasets.
 
 Metafeatures include simple metafeatures (number of classes, number of features, etc.), information-theoretic metafeatures (class entropy), statistical metafeatures (kurtosis, skewness, etc.), PCA metafeatures (pca 50%, etc.), and landmarking metafeatures (Decision Tree, Naive Bayes, etc.). The below image shows examples of various metafeatures.
 
